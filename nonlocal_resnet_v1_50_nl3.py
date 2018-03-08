@@ -31,6 +31,8 @@ def endpoints(image, is_training):
 
       saver = tf.train.Saver(model_variables)
       saver.restore(sess, args.initial_checkpoint)
+
+      # Do something with `endpoints['model_output']`
   """
 
   if image.get_shape().ndims != 4:

@@ -25,4 +25,9 @@ model_variables = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, body_prefix)
 
 saver = tf.train.Saver(model_variables)
 saver.restore(sess, args.initial_checkpoint)
+
+# Do something with `endpoints['model_output']`
 ```
+
+Note that the last endpoint is the result of the global average pooling operation, so this code does not include the final 1000-classes classification layer.
+If you are not doing ImageNet classification (in which case: why use this??), you typically don't want that one anyways.
